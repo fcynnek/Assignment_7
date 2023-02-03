@@ -30,8 +30,10 @@ public class CustomListApplication {
 		myCustomList.add("element 18");
 		myCustomList.add("element 19");
 		myCustomList.add("element 20");
-		myCustomList.add("element 21");
-		myCustomList.add(11, "new element 11");
+		myCustomList.add("element 21"); // index = 20
+//		myCustomList.add(11, "new element 11");
+		myCustomList.remove(18);
+		
 
 		System.out.println(myCustomList.getSize());
 

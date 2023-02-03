@@ -35,6 +35,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
 		
+		
 		add(item);
 		
 //		if (index != sizeOfList && index <= sizeOfList) {
@@ -44,15 +45,11 @@ public class CustomArrayList<T> implements CustomList<T> {
 			
 			while (index <= sizeOfList) {
 				items[index-1] = tempItems[i];
-				items[index] = item;
-				items[index+1] = tempItems[i];
+//				items[index+1] = tempItems[i];
 				index++;
 				i++;
-				
-				
-//				index++;
-//				i++;
 			}
+//			items[index] = item;
 			
 //			
 //		} else if (index > sizeOfList) {
@@ -67,7 +64,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	public int getSize() {
 		
 		if (sizeOfList == 0) {
-			System.out.println("The list is currently empty");
+			System.err.println("The list is currently empty");
 		}
 		return sizeOfList;
 	}
@@ -77,7 +74,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	public T get(int index) {
 		
 		if (index >= getSize() || index < 0)  {
-			System.out.println("Index is out of bounds");
+			System.err.println("Index is out of Bounds");
 		} else {
 			return (T) items[index];
 		}
@@ -88,10 +85,34 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
 		
-//		if (items[index] != null) {
-//			items[index] = 
-//		}
+		if (index > sizeOfList) {
+			System.err.println("Index is out of Bounds");
+		} else if (index == sizeOfList) {
+			items[index] = null;
+			sizeOfList = sizeOfList-1;
+		} else if (index < sizeOfList) {
+			
+			while (index < sizeOfList) {
+				int index2 = index;
+				int index1 = index+1;
+				swapPositions(index2, index1);
+//				if (index1 == sizeOfList || index2 == sizeOfList) {
+//					break;
+//				} 
+				items[index] = null;
+				sizeOfList = sizeOfList-1;
+			}
+		}
 		return null;
+	}
+	
+	public void swapPositions (int index1, int index2) {
+		
+		Object tempHold = items[index1];
+		items[index1] = items[index2];
+		items[index2] = tempHold;
+		
+		
 	}
 	
 }
