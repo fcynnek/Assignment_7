@@ -95,7 +95,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 			while (index < sizeOfList) {
 				int index2 = index;
 				int index1 = index+1;
-				swapPositions(index2, index1);
+				swapPositions(index1, index2);
+				index2++;
 //				if (index1 == sizeOfList || index2 == sizeOfList) {
 //					break;
 //				} 
