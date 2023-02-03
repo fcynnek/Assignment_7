@@ -10,7 +10,8 @@ public class CustomListApplication {
 		// TESTING THE CODE:
 		CustomList<String> myCustomList = new CustomArrayList<>();
 
-		myCustomList.add("element 1"); // then add 10, 20, or 40 elements
+		// then add 10, 20, or 40 elements
+		myCustomList.add("element 1"); // index = 0
 		myCustomList.add("element 2");
 		myCustomList.add("element 3");
 		myCustomList.add("element 4");

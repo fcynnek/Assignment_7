@@ -84,25 +84,29 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
-		
-		if (index > sizeOfList) {
-			System.err.println("Index is out of Bounds");
-		} else if (index == sizeOfList) {
+
+		if (index < sizeOfList) {
+
+			int index1 = index;
+			int index2 = index1+1;
+			while (index < sizeOfList) {
+				swapPositions(index2, index1);
+				index1++;
+//				items[index] = null;					
+				if (index1 == sizeOfList) {
+					break;
+				} 
+//				sizeOfList = sizeOfList-1;
+			}
+		} 
+		else if (index == sizeOfList) {
 			items[index] = null;
 			sizeOfList = sizeOfList-1;
-		} else if (index < sizeOfList) {
-			
-			while (index < sizeOfList) {
-				int index2 = index;
-				int index1 = index+1;
-				swapPositions(index2, index1);
-//				if (index1 == sizeOfList || index2 == sizeOfList) {
-//					break;
-//				} 
-				items[index] = null;
-				sizeOfList = sizeOfList-1;
-			}
+		} 
+		else if (index > sizeOfList) {
+			System.err.println("Index is out of Bounds");
 		}
+
 		return null;
 	}
 	
