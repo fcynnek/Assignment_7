@@ -102,9 +102,19 @@ public class CustomArrayList<T> implements CustomList<T> {
 		else if (index == sizeOfList) {
 			items[index] = null;
 			sizeOfList = sizeOfList-1;
-		} 
-		else if (index > sizeOfList) {
-			System.err.println("Index is out of Bounds");
+		} else if (index < sizeOfList) {
+			
+			while (index < sizeOfList) {
+				int index2 = index;
+				int index1 = index+1;
+				swapPositions(index1, index2);
+				index2++;
+//				if (index1 == sizeOfList || index2 == sizeOfList) {
+//					break;
+//				} 
+				items[index] = null;
+				sizeOfList = sizeOfList-1;
+			}
 		}
 
 		return null;
