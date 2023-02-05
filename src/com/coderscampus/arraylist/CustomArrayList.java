@@ -34,27 +34,17 @@ public class CustomArrayList<T> implements CustomList<T> {
 	
 	@Override
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
-		
-		
 		add(item);
 		
-//		if (index != sizeOfList && index <= sizeOfList) {
-			
-			Object[] tempItems = new Object[sizeOfList];
-			int i = 0;
-			
-			while (index <= sizeOfList) {
-				items[index-1] = tempItems[i];
-//				items[index+1] = tempItems[i];
-				index++;
-				i++;
-			}
-//			items[index] = item;
-			
-//			
-//		} else if (index > sizeOfList) {
-//			System.err.println("Index Out of Bounds Exception");
-//		}
+		if (index < 0 || index > sizeOfList) {
+			System.err.println("The list is currently empty");
+		}
+		int i = sizeOfList - 1;
+		while (i >= index) {
+			swapPositions(i, i + 1);
+			i--;
+		}
+		items[index] = item;
 		
 		return false;
 	}
@@ -85,27 +75,17 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
 
-		if (index <= sizeOfList) {
-
-			int index1 = index;
-			int index2 = sizeOfList;
-			swapPositions(index2, index1);
-//			while (index <= sizeOfList) {
-//				index1++;
-				if (index1 == sizeOfList) {
-					items[index] = null;					
-//					break;
-//				} 
-			}
-			sizeOfList = sizeOfList-1;
-//		} 
-//		else if (index == sizeOfList) {
-//			items[index] = null;
-//			sizeOfList = sizeOfList-1;
-		} else {
+		if (index < 0 || index >= sizeOfList) {
 			System.err.println("Index is out of Bounds");
 		}
-
+		Object item = items[index];
+		int i = index;
+		while (i < sizeOfList - 1) {
+			swapPositions(i, i + 1);
+			i++;
+		}
+		items[sizeOfList - 1] = null;
+		sizeOfList = sizeOfList - 1;
 		return null;
 	}
 	
@@ -114,8 +94,6 @@ public class CustomArrayList<T> implements CustomList<T> {
 		Object tempHold = items[index1];
 		items[index1] = items[index2];
 		items[index2] = tempHold;
-		
-		
 	}
 	
 }
