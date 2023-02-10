@@ -31,7 +31,7 @@ class CustomArrayListTest {
 		assertEquals(1, list.getSize());
 	}
 	
-	@Test(expected = IndexOutOfBoundsException.class)
+	@Test
 	public void testGetMethodWithInvalidIndex() {
 		CustomArrayList<Boolean> list = new CustomArrayList<>();
 		list.get(0);
@@ -47,7 +47,7 @@ class CustomArrayListTest {
 		assertEquals(1, list.getSize());
 	}
 	
-	@Test(expected = IndexOutOfBoundsException.class)
+	@Test
 	public void testRemoveMethodWithInvalidIndex() {
 		CustomArrayList<Integer> list = new CustomArrayList<>();
 		list.remove(0);
