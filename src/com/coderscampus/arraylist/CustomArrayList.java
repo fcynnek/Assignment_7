@@ -75,14 +75,15 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 		if (index < 0 || index >= sizeOfList) {
 			System.err.println("Index is out of Bounds");
-		} else if (items == null) {
+		} else if (sizeOfList == 0 || items == null) {
 			System.err.println("The list is currently empty");
-		}
-		Object item = items[index];
-		int i = index;
-		while (i < sizeOfList - 1) {
-			swapPositions(i, i + 1);
-			i++;
+		} else {
+			Object item = items[index];
+			int i = index;
+			while (i < sizeOfList - 1) {
+				swapPositions(i, i + 1);
+				i++;
+			}
 		}
 		items[sizeOfList - 1] = null;
 		sizeOfList = sizeOfList - 1;
