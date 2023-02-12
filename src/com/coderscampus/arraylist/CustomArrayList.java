@@ -23,11 +23,9 @@ public class CustomArrayList<T> implements CustomList<T> {
 			while (i <= sizeOfList-1) {
 				newItems[i] = items[i];
 				i++;
-			}
-						
+			}	
 			items = newItems;
 		} 
-		
 		return false;
 	}
 
@@ -77,6 +75,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 		if (index < 0 || index >= sizeOfList) {
 			System.err.println("Index is out of Bounds");
+		} else if (items == null) {
+			System.err.println("The list is currently empty");
 		}
 		Object item = items[index];
 		int i = index;
