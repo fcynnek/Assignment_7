@@ -1,5 +1,6 @@
 package com.coderscampus.arraylist;
 
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -9,8 +10,14 @@ class CustomArrayListTest {
 	@Test
 	public void testAddMethod() {
 		CustomArrayList<Integer> list = new CustomArrayList<>();
+		assertEquals(null, list.get(0));
 		assertEquals(false, list.add(1));
 		assertEquals(1, list.getSize());
+		
+		for (int i = 0; i<20; i++) {
+			list.add(i);
+		}
+		assertEquals(21, list.getSize());
 	}
 	
 	@Test
@@ -51,6 +58,14 @@ class CustomArrayListTest {
 	public void testRemoveMethodWithInvalidIndex() {
 		CustomArrayList<Integer> list = new CustomArrayList<>();
 		list.remove(0);
+	}
+	
+	@Test
+	public void testExceptions() {
+		CustomArrayList<String> list = new CustomArrayList<>();
+//		assertThrows(IndexOutOfBoundsException.class, () -> list.remove(0));
+		assertThrows(IndexOutOfBoundsException.class, () -> list.add(30, "Hello World")); 
+//		assertThrows(IndexOutOfBoundsException.class, () -> list.remove(5));
 	}
 
 }

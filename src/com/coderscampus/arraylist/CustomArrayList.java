@@ -35,7 +35,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 		add(item);
 		
 		if (index < 0 || index > sizeOfList) {
-			System.err.println("The list is currently empty");
+			System.err.println("Index is out of Bounds");
 		}
 		int i = sizeOfList - 1;
 		while (i >= index) {
