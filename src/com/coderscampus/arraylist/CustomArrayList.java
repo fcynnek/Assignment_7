@@ -11,9 +11,6 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public boolean add(T item) {
 		
-		items[sizeOfList] = item;
-		sizeOfList++;
-		
 		if (sizeOfList == capacity) {
 			capacity = 2 * capacity;
 			
@@ -26,6 +23,9 @@ public class CustomArrayList<T> implements CustomList<T> {
 			}	
 			items = newItems;
 		} 
+		items[sizeOfList] = item;
+		sizeOfList++;
+		
 		return false;
 	}
 
@@ -75,8 +75,11 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 		if (index < 0 || index >= sizeOfList) {
 			System.err.println("Index is out of Bounds");
+//			throw new IndexOutOfBoundsException("Index is out of Bounds");
+			return null;
 		} else if (sizeOfList == 0 || items == null) {
 			System.err.println("The list is currently empty");
+			return null;
 		} else {
 			Object item = items[index];
 			int i = index;
@@ -84,10 +87,10 @@ public class CustomArrayList<T> implements CustomList<T> {
 				swapPositions(i, i + 1);
 				i++;
 			}
+			items[sizeOfList - 1] = null;
+			sizeOfList = sizeOfList - 1;
+			return (T) item;
 		}
-		items[sizeOfList - 1] = null;
-		sizeOfList = sizeOfList - 1;
-		return null;
 	}
 	
 	public void swapPositions (int index1, int index2) {
