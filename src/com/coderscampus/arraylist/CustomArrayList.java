@@ -32,19 +32,19 @@ public class CustomArrayList<T> implements CustomList<T> {
 	
 	@Override
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
-		add(item);
 		
 		if (index < 0 || index > sizeOfList) {
 			System.err.println("Index is out of Bounds");
+			return false;
 		}
-		int i = sizeOfList - 1;
+		add(item);
+		int i = sizeOfList;
 		while (i >= index) {
 			swapPositions(i, i + 1);
 			i--;
 		}
 		items[index] = item;
-		
-		return false;
+		return true;
 	}
 	
 	

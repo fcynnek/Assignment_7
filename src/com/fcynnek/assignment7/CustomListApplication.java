@@ -21,6 +21,15 @@ public class CustomListApplication {
 		myCustomList.add("element 7");
 		myCustomList.add("element 8");
 		myCustomList.add("element 9"); // item #10
+		
+		myCustomList.remove(9);
+		myCustomList.remove(7);
+		myCustomList.add("element 1000");
+		myCustomList.add("element 1002");
+		myCustomList.add(7, "element 1003");
+		myCustomList.add(7, "element 1004");
+		
+		
 		myCustomList.add("element 10"); 
 		myCustomList.add("element 11"); 
 		myCustomList.add("element 12");
@@ -33,11 +42,11 @@ public class CustomListApplication {
 		myCustomList.add("element 19"); // item #20
 		myCustomList.add("element 20"); 
 		myCustomList.add("element 21"); 
-		myCustomList.add(11, "new element 11");
-		myCustomList.remove(10);
-		myCustomList.add(11, "new new element 11");
-		myCustomList.remove(30);
-		myCustomList.remove(8);
+//		myCustomList.add(11, "new element 11");
+//		myCustomList.remove(10);
+//		myCustomList.add(11, "new new element 11");
+//		myCustomList.remove(30);
+//		myCustomList.remove(8);
 		
 
 		System.out.println(myCustomList.getSize());
