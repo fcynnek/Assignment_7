@@ -17,7 +17,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 			Object[] newItems = new Object[capacity];
 			int i = 0;
 				
-			while (i <= sizeOfList-1) {
+			while (i <= sizeOfList - 1) {
 				newItems[i] = items[i];
 				i++;
 			}	
@@ -40,7 +40,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 		add(item);
 		int i = sizeOfList;
 		while (i >= index) {
-			swapPositions(i, i + 1);
+			swapPositions(i + 1, i);
 			i--;
 		}
 		items[index] = item;
