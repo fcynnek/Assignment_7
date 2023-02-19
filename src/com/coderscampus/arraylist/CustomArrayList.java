@@ -38,9 +38,9 @@ public class CustomArrayList<T> implements CustomList<T> {
 			return false;
 		}
 		add(item);
-		int i = sizeOfList;
-		while (i >= index) {
-			swapPositions(i + 1, i);
+		int i = sizeOfList - 1;
+		while (i > index) {
+			swapPositions(i, i - 1);
 			i--;
 		}
 		items[index] = item;
