@@ -1,2 +1,5 @@
 # Assignment_7
- K. Cheng's Assignment #7 for Coders Campus Bootcamp
+
+Assignment #7 for Coders Campus Bootcamp
+
+This assignment was about writing Unit Tests for the code.
